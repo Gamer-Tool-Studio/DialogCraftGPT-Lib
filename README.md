@@ -1,21 +1,21 @@
-# DialogCraftGPT-API
+# DialogCraftGPT Node.js Library
 
 Build AI characters and add seamless conversations to your games and other environments.
 Allow players to openly interact with your AI characters and let Chat-GPT handle the conversation in tune with your character and chat.
 
 ## Features 🎁
 
-Send requests with user inputs to the GPT-3 API.
-Define character contexts and traits to guide GPT-3's responses.
-Send interaction history in the requests to keep GPT-3 in sycn with your conversation flow.
-Receive AI-generated responses as your in-game characters.
+- Send requests with user inputs to the GPT-3 API.
+- Define character contexts and traits to guide GPT-3's responses.
+- Send interaction history in the requests to keep GPT-3 in sycn with your conversation flow.
+- Receive AI-generated responses as your in-game characters.
 
 ## Installation 📦
 
 Install DialogCraftGPT lib using npm:
 
 ```
-npm install dialogcraftgpt-lib
+npm install dialogcraftgpt
 ```
 
 ## Usage 🚀
@@ -71,3 +71,6 @@ const chat = await dialogCraftGPT.createChat({
   ],
 });
 ```
+## Documentation 📖
+
+Check the detailed documentation to learn how you can optimize chat requests here
