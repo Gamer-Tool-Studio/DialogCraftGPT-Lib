@@ -17,6 +17,11 @@ Install DialogCraftGPT lib using npm:
 ```
 npm install dialogcraftgpt
 ```
+## Authentication 🥷
+
+- Go to Gamertoolstudio.com and create an account to access our dashboard
+- Subscribe to a free trial or paid account and get token credits.
+- Create a new API key in the dashboard and use it in your config as describbed below.
 
 ## Usage 🚀
 
