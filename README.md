@@ -1,4 +1,4 @@
-# DialogCraftGPT Node.js Library
+# NPC-GPT Library
 
 Build AI characters and add seamless conversations to your games and other environments.
 Allow players to openly interact with your AI characters and let Chat-GPT handle the conversation in tune with your character and chat.
