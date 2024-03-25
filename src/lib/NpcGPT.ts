@@ -3,7 +3,7 @@ import { Endpoints } from 'src/constants/endpoints';
 import { StringMap, CharacterType } from 'src/types';
 import { getLogger } from 'src/core-services/logFunctionFactory';
 
-const { logError } = getLogger('DialogCraftGPTLib');
+const { logError } = getLogger('NPC-gpt');
 
 export type CreateChatInput = {
   chatHistory: [StringMap?];
@@ -12,7 +12,7 @@ export type CreateChatInput = {
   maxOutputTokens: number;
 };
 
-export default class DialogCraftGPTApi {
+export default class NpcGPT {
   private axios: AxiosInstance;
 
   constructor({ apiKey, baseURL }: { apiKey: string; baseURL?: string }) {

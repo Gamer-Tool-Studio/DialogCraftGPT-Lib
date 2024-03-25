@@ -1,34 +1,30 @@
 // import axios from 'axios';
 // import AxiosMockAdapter from 'axios-mock-adapter';
 import { CharacterType } from 'src/types';
-import DialogCraftGPTApi, { CreateChatInput } from '../lib/dialogCraftGPTLib';
+import NpcGPT, { CreateChatInput } from '../lib/NpcGPT';
 
 // Mock Axios instance for testing
 // const mockAxios = new AxiosMockAdapter(axios);
 
 // Define a test API key
-const apiKey = 'your-api-key';
+const apiKey = process.env.API_TEST_KEY as string;
 
 const characterContext: CharacterType = {
   name: 'John Doe',
   age: 30,
-  personality: {
-    traits: ['friendly', 'outgoing'],
-    dialogueStyle: 'casual',
-  },
+  personalityTraits: 'friendly and outgoing',
   'background story': 'A character with an interesting backstory.',
   'game knowledge': 'Experienced player',
-  interests: {
-    sports: 5,
-    movies: 4,
-    music: 3,
-  },
-  supportiveness: 7,
+  interests: '',
+  friendliness: 'low',
+  maxOutputWords: 100,
+  environment: 'RPG Game',
+  dialogueStyle: 'casual',
 };
-// Create an instance of DialogCraftGPTApi for testing
-const api = new DialogCraftGPTApi({ apiKey });
+// Create an instance of NpcGPT for testing
+const api = new NpcGPT({ apiKey });
 
-describe('DialogCraftGPTApi', () => {
+describe('NpcGPT', () => {
   beforeEach(() => {
     // mockAxios.reset(); // Reset Axios mock before each test
     // logError.mockClear(); // Clear the logError mock
@@ -39,7 +35,7 @@ describe('DialogCraftGPTApi', () => {
 
     // Mock Axios to respond with a successful response
     // mockAxios.onPost('/api/v1/sendMessage').reply(200, mockResponse);
-    const userInput = 'Hello, GPT!';
+    const userInput = 'Hello, GPT! I\'m just sending a message without chat history';
     const chatInput: CreateChatInput = {
       chatHistory: [],
       userInput,
@@ -51,7 +47,7 @@ describe('DialogCraftGPTApi', () => {
 
     // Ensure Axios was called with the correct parameters
     expect(response.content).toBe(userInput);
-    expect(chatHistory.length).toBe(2);
+    expect(chatHistory.length).toBe(3);
     // expect(mockAxios.history.post[0].data).toEqual(JSON.stringify(chatInput));
   });
 
@@ -61,7 +57,7 @@ describe('DialogCraftGPTApi', () => {
 
     const chatInput: CreateChatInput = {
       chatHistory: [],
-      userInput: 'Hello, GPT!',
+      userInput: 'Hello, GPT! I am not sending chat history and character context',
       // characterContext,
       maxOutputTokens: 50,
     };
@@ -69,6 +65,6 @@ describe('DialogCraftGPTApi', () => {
     const response = await api.createChat(chatInput);
 
     // Ensure Axios was called with the correct parameters
-    expect(response).toBe('A characterContext object is required');
+    expect(response).toBe('An error occurred: A characterContext object is required');
   });
 });

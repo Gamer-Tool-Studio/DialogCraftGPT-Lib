@@ -9,6 +9,7 @@ const config: Config = {
     '^@root(.*)$': '<rootDir>/src$1',
     '^@components(.*)$': '<rootDir>/src/components$1',
   },
+  setupFiles: ['dotenv/config'],
 };
 
 export default config;

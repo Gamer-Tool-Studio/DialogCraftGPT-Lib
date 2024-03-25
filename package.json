@@ -1,5 +1,5 @@
 {
-  "name": "dialogcraftgpt",
+  "name": "npc-gpt",
   "version": "1.0.2",
   "description": "",
   "main": "build/index.js",
@@ -11,7 +11,7 @@
     "build": "webpack --mode production --config webpack.config.ts",
     "dev": "nodemon build/index.js --watch build",
     "prod": "nodemon dist/index.js --watch dist",
-    "test": "cross-env DEBUG=dc-gpt-lib:* && jest",
+    "test": "cross-env DEBUG=npc-gpt:*  cross-env DOTENV_CONFIG_PATH=./.env.test  jest",
     "lint": "eslint",
     "pub": "npm publish --dry-run"
   },

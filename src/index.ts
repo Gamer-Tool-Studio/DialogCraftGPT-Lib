@@ -1,3 +1,3 @@
-import DialogCraftGPTApi from './lib/dialogCraftGPTLib';
+import NpcGPT from './lib/NpcGPT';
 
-export = DialogCraftGPTApi;
+export = NpcGPT;
