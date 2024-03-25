@@ -1,63 +1,60 @@
 # NPC-GPT Library
 
-Build AI characters and add seamless conversations to your games and other environments.
-Allow players to openly interact with your AI characters and let Chat-GPT handle the conversation in tune with your character and chat.
+Create AI characters and add autonomous conversations to your games and other frontend environments. Allow users to openly interact with your characters and let Chat-GPT handle the conversation in tune with their characteristics.
 
 ## Features 🎁
 
-- Send requests with user inputs to the GPT-3 API.
-- Define character contexts and traits to guide GPT-3's responses.
-- Send interaction history in the requests to keep GPT-3 in sycn with your conversation flow.
+- Send requests with user inputs to the GPT-4 model.
+- Define character contexts to guide GPT responses.
+- Send interaction history in the requests to keep GPT-3 in sync with your conversation flow.
 - Receive AI-generated responses as your in-game characters.
 
 ## Installation 📦
 
-Install DialogCraftGPT lib using npm:
+Install NPC GPT lib using npm:
 
-```
-npm install dialogcraftgpt
-```
+npm install npc-gpt
+
 ## Authentication 🥷
 
-- Go to Gamertoolstudio.com and create an account to access our dashboard
+- [Go to gamertoolstudio.com](https://gamertoolstudio.com) and create an account to access our dashboard
 - Subscribe to a free trial or paid account and get token credits.
-- Create a new API key in the dashboard and use it in your config as describbed below.
+- Create a new API key in the dashboard and use it in your requests.
 
 ## Usage 🚀
 
 Create a new `.js`file and add the following code:
 
 ```javascript
-const DialogCraftGPTApi = require('dialogcraftgpt-lib');
+const NpcGPTApi = require('npc-gpt');
 
-const dialogCrafGpt = new DialogCraftGPTApi({
-  apiKey: process.env.DIALOGCRAFTGPT_API_KEY,
+const npcGPT = new NpcGPTApi({
+  apiKey: process.env.NPCGPT_API_KEY,
 });
 
 // 1st input example
-const chat = await dialogCraftGPT.createChat({
-  userInput: 'Hello John, how are you?',
+const { response, chatHistory } = await npcGPT.createChat({
+  userInput: "I've heard about a secret map?!",
   chatHistory: [],
   characterContext: {
-    name: 'John',
+    name: 'GPTWizard',
     age: 35,
-    personality: {
-      traits: ['friendly', 'optimistic', 'adventurous'],
-      dialogueStyle: 'casual',
-    },
-    'background story':
+    personalityTraits:"shy, mystic, adventurous",
+    dialogueStyle: "casual"
+    backgroundStory:
       'John is a skilled adventurer who has traveled the world in search of hidden treasures. He is always eager to help others and believes in the power of friendship.',
-    'game knowledge': 'John knows that there was a crime scene, he also knows about Alice affair with Joseph',
-    interests: {
-      Technology: 7,
-      Cars: 9,
-    },
-    supportiveness: 5,
+    eventsKnowledge: "Knows there is a secret map at the entrance of the big cave under a yellow flower and knows the player arduous future in the forest with many enemies and challenges",
+    interests: "Herbology, potions, history"
+    friendliness: "Best friend",
+    environment: "RPG Game"
+    maxOutputWords: 50
   },
 });
 
+console.log(response, chatHistory);
+
 // 2nd input example
-const chat = await dialogCraftGPT.createChat({
+const { response, chatHistory } = await dialogCraftGPT.createChat({
   userInput: 'Can you help me find that mystical sword?',
   chatHistory: [
     {
@@ -73,9 +70,16 @@ const chat = await dialogCraftGPT.createChat({
       name: '',
       function_call: {},
     },
+    {
+      role: "user",
+      content: "I've heard about a secret map?!"
+    },
   ],
 });
+
+console.log(response, chatHistory);
+
 ```
 ## Documentation 📖
 
-Check the detailed documentation to learn how you can optimize chat requests here
+Check our detailed documentation to learn how you can optimize chat requests [here](https://gamertoolstudio.gitbook.io/npc-gpt/api-reference/introduction)

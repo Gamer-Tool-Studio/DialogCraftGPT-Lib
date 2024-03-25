@@ -9,7 +9,6 @@ export type CreateChatInput = {
   chatHistory: [StringMap?];
   userInput: string;
   characterContext?: CharacterType;
-  maxOutputTokens: number;
 };
 
 export default class NpcGPT {
@@ -27,7 +26,6 @@ export default class NpcGPT {
     chatHistory,
     userInput,
     characterContext,
-    maxOutputTokens,
   }: CreateChatInput): Promise<any> {
     try {
       const { response, chatHistory: newChatHistory } = (
@@ -35,7 +33,6 @@ export default class NpcGPT {
           chatHistory,
           userInput,
           characterContext,
-          maxOutputTokens,
         })
       ).data;
       return { response, chatHistory: newChatHistory };
