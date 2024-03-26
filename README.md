@@ -37,7 +37,7 @@ const { response, chatHistory } = await npcGPT.createChat({
   userInput: "I've heard about a secret map?!",
   chatHistory: [],
   characterContext: {
-    name: 'GPTWizard',
+    name: 'John',
     age: 35,
     personalityTraits:"shy, mystic, adventurous",
     dialogueStyle: "casual"
