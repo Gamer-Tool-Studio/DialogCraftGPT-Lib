@@ -6,7 +6,7 @@ Create AI characters and add autonomous conversations to your games and other fr
 
 - Send requests with user inputs to the GPT-4 model.
 - Define character contexts to guide GPT responses.
-- Send interaction history in the requests to keep GPT-3 in sync with your conversation flow.
+- Send interaction history in the requests to keep GPT-4 in sync with your conversation flow.
 - Receive AI-generated responses as your in-game characters.
 
 ## Installation 📦
@@ -54,7 +54,7 @@ const { response, chatHistory } = await npcGPT.createChat({
 console.log(response, chatHistory);
 
 // 2nd input example
-const { response, chatHistory } = await dialogCraftGPT.createChat({
+const { response, chatHistory } = await npcGPT.createChat({
   userInput: 'Can you help me find that mystical sword?',
   chatHistory: [
     {
